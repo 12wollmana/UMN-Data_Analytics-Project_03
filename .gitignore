@@ -360,3 +360,5 @@ config.py
 *.DS_Store
 
 *.icloud
+
+*checkpoint.ipynb

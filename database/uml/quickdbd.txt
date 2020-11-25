@@ -1,4 +1,0 @@
-# Aaron Wollman, Will Huang, 
-# Kelsey Richardson Blackwell, Mark Erickson
-#------------------------------------
-# Paste this code into app.quickdatabasediagrams.com

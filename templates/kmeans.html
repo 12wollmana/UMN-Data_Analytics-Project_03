@@ -51,96 +51,38 @@
                 </ul>
             </div>
         </nav>
-        <div class='page'>
-        </div>
-         
-        
         <main>
-        <div class="container">
-            <div class="row">
-                <!-- Title Card -->
-                <div class="col-12">
-                    <div class="jumbotron">
-                        <h1 class="display-6">
-                            Billboard Top 100 Clustering
-                        </h1>
-                        <hr class="my-4" />
-                        Short description
-                        a link to how we
-                        <a href="kmeans.html">Kmeans Info</a>
+            <div class="container">
+                <div class="row">
+                    <!-- Title Card -->
+                    <div class="col-12">
+                        <div class="jumbotron">
+                            <h1 class="display-6">
+                                Billboard Top 100 Clustering
+                            </h1>
+                            <hr class="my-4" />
+                            Short description
+                            
+                        </div>
                     </div>
-                </div>
-                <!-- Plot -->
-                <div class="col-4">
-                    <div class="card">
-                        <div class="card-header">Clusters1-1</div>
-                        <div id="plot"></div>
+                    <!-- Error Card -->
+                    <div class="col-12 hidden col__error">
+                        <div class="alert alert-danger" role="alert">
+                            <!-- Error Message -->
+                        </div>
                     </div>
-                    <br/>
-                    <div class="card">
-                        <div class="card-header">Clusters1-2</div>
-                        <div id="plot"></div>
-                    </div>
-                    
-                </div>
-                <div class="col-4">
-                    <div class="card">
-                        <div class="card-header">Clusters2-1</div>
-                        <div id="plot"></div>
-                    </div>
-                    <br/>
-                    <div class="card">
-                        <div class="card-header">Clusters2-2</div>
-                        <div id="plot"></div>
-                    </div>
-                  
-                </div>
-                <div class="col-4">
-                    <div class="card">
-                        <div class="card-header">Clusters3</div>
-                        <div id="plot"></div>
-                    </div>
-                    <br/>
-                    <div class="card">
-                        <div class="card-header">Clusters3</div>
-                        <div id="plot"></div>
+                    <!-- Plot -->
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">Clusters</div>
+                            <div id="plot"></div>
+                        </div>
+                        <br />
                     </div>
                 </div>
             </div>
-        </div>
         </main>
 
-        <footer>
-            <nav class="navbar fixed-bottom navbar-dark bg-primary">
-                <span class="navbar-brand">Settings</span>
-                <form class="form-inline">
-                    <div class="row">
-                        <label
-                            class="col col-form-label text-light"
-                            for="selectCluster"
-                        >
-                            Cluster:
-                        </label>
-                        <select
-                            class="col form-control d-inline"
-                            id="selectcluster"
-                        >
-                            <option>None</option>
-                        </select>
-
-                        <div class="col">
-                            <button
-                                class="btn btn-outline-light"
-                                type="submit"
-                                id="buttonApplySettings"
-                            >
-                                Apply
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </nav>
-        </footer>
 
         <div class="loading hidden">
             <div class="loading__content">

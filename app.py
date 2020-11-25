@@ -31,10 +31,12 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0  # Prevent caching
 
 routes = {
     "home": "/",
+    "K-Means" : "/kmeans"
 }
 
 templates = {
     "home": "index.html",
+    "K-Means": 'kmeans.html'
 }
 
 # endregion

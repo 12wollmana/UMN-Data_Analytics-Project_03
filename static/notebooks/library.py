@@ -35,8 +35,6 @@ def import_music_df_with_model(with_scaling = False, remove_dups = True):
     attribute_df = get_attributes(df)
     clusters = kmeans.predict(attribute_df)
     df["Cluster"] = clusters
-    
-    df['Decade'] = (10 * (df['Year'] // 10)).astype(str) + 's'
 
     if(remove_dups):
         df = remove_duplicates_in_music_df(df)
@@ -54,7 +52,7 @@ def remove_duplicates_in_music_df(df):
     """
     Drop duplicates.
     """
-    df = df.drop_duplicates(subset=['Track', "Artist", "Decade"])
+    df = df.drop_duplicates(subset=['Track', "Artist"])
 
     """
     Re-sort the dataframe by date.

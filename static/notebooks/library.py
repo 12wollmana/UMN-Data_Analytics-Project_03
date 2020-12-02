@@ -39,4 +39,21 @@ def import_music_df_with_model(with_scaling = False):
     return df
     
     
+def remove_duplicates_in_music_df(df):
+    """
+    Sort by Track, Artist, and Placement.
+    This is so that only keep the highest placement will be kept when drop_duplicates is called.
+    """
+    df = df.sort_values(by=["Track", "Artist", "Placement"])
+
+    """
+    Drop duplicates.
+    """
+    df = df.drop_duplicates(subset=['Track', "Artist", "Decade"])
+
+    """
+    Re-sort the dataframe by date.
+    """
+    df = df.sort_values(by=["Year", "Month", "Day", "Placement"])
     
+    return df

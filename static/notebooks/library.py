@@ -25,7 +25,7 @@ def load_model(filename):
 def get_attributes(df):
     return df[['danceability', 'energy', 'key', 'loudness', "speechiness", 'acousticness', 'liveness', 'valence', 'tempo']]
 
-def import_music_df_with_model(with_scaling = False):
+def import_music_df_with_model(with_scaling = False, remove_dups = True):
     filename = model_filenames["without-scaling"]
     if(with_scaling):
         filename = model_filenames["with-scaling"]
@@ -35,6 +35,11 @@ def import_music_df_with_model(with_scaling = False):
     attribute_df = get_attributes(df)
     clusters = kmeans.predict(attribute_df)
     df["Cluster"] = clusters
+    
+    df['Decade'] = (10 * (df['Year'] // 10)).astype(str) + 's'
+
+    if(remove_dups):
+        df = remove_duplicates_in_music_df(df)
     
     return df
     

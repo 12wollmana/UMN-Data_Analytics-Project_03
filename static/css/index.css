@@ -77,8 +77,18 @@ main {
     grid-row: 1;
 }
 
+.report__paragraphs {
+    display: flex;
+    flex-direction: column;
+}
+
+.report__paragraphs > .report__figure {
+    align-self: center;
+}
+
 @media only screen and (max-width: 768px) {
     .report__figure {
         grid-column: 1 / -1;
+        align-self: center;
     }
 }

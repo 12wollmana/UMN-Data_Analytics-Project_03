@@ -71,80 +71,236 @@
                                     <h2 class="report__header">Introduction</h2>
                                     <div class="report__paragraphs">
                                         <p>
-                                            Lorem ipsum dolor sit, amet
-                                            consectetur adipisicing elit.
-                                            Corporis quisquam accusamus
-                                            molestias fugit molestiae, ad fugiat
-                                            in, cum maiores enim doloremque eos
-                                            asperiores iusto provident
-                                            recusandae laboriosam soluta
-                                            excepturi labore.
+                                            This website looks at the Billboards
+                                            Top 100 songs from the 1960s until
+                                            the end of the 2010s and uses
+                                            k-means clustering to see if there
+                                            are any identifiable classifications
+                                            of music within the timeframe.
                                         </p>
 
                                         <p>
-                                            Lorem ipsum dolor sit amet
-                                            consectetur, adipisicing elit.
-                                            Ratione excepturi a corrupti
-                                            corporis laborum, recusandae aperiam
-                                            dicta esse voluptatum sit nobis
-                                            aliquam facere, doloremque amet quas
-                                            natus magni, voluptates
-                                            exercitationem!
+                                            The data comes from
+                                            <a
+                                                href="https://github.com/fortyTwo102/hitpredictor-decade-util/tree/master/Database"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >fortyTwo102’s
+                                                hitpredictor-decade-util
+                                                project</a
+                                            >.
                                         </p>
                                     </div>
                                 </div>
                                 <div class="report__section">
-                                    <h2 class="report__header">Section 2</h2>
+                                    <h2 class="report__header">
+                                        K-Means Clustering
+                                    </h2>
+                                </div>
+
+                                <div class="report__section">
+                                    <h3 class="report__header">
+                                        Determining a Value for K
+                                    </h3>
                                     <div class="report__paragraphs">
                                         <p>
-                                            Lorem ipsum dolor sit amet
-                                            consectetur, adipisicing elit.
-                                            Numquam modi, possimus reiciendis
-                                            quisquam placeat nesciunt quidem
-                                            doloribus vero harum optio eos
-                                            magnam exercitationem iure aut,
-                                            dolor aspernatur sit? Optio, esse?
+                                            In order to identify certain types
+                                            of music, we'll conduct a k-means
+                                            clustering algorithm to find the
+                                            different classifications.
                                         </p>
 
                                         <p>
-                                            Lorem ipsum dolor sit, amet
-                                            consectetur adipisicing elit. Ullam,
-                                            atque illum distinctio dolores
-                                            labore quia, fuga accusamus
-                                            asperiores excepturi error
-                                            laudantium obcaecati facere vitae.
-                                            Aspernatur rerum iste esse sapiente
-                                            delectus.
+                                            To conduct the algorithm, we need to
+                                            find the optimum number (k-value) of
+                                            clusters we would like to identify.
+                                            For this, we're going to use an
+                                            Elbow Plot. For more information on
+                                            what an Elbow Plot is, see this
+                                            <a
+                                                href="https://medium.com/analytics-vidhya/how-to-determine-the-optimal-k-for-k-means-708505d204eb"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >link</a
+                                            >. Essentially, what we're looking
+                                            for is a distict "elbow" within the
+                                            plot when there is no longer a
+                                            significant slope.
+                                        </p>
+
+                                        <figure class="figure report__figure">
+                                            <img
+                                                src="../static/images/plots/decades/line/number_of_hits.png"
+                                                class="figure-img img-fluid rounded"
+                                                alt="Dummy Chart"
+                                            />
+                                        </figure>
+
+                                        <p>
+                                            The elbow plot for our dataset is on
+                                            the right. The elbow plot was more
+                                            rounded than expected, but we felt
+                                            comfortable with choosing a k-value
+                                            of 3. 4 was also an option, but we
+                                            felt there wouldn't be a significant
+                                            difference between 3 and 4.
                                         </p>
                                     </div>
-                                    <figure class="figure report__figure">
-                                        <img
-                                            src="../static/images/plots/decades/line/number_of_hits.png"
-                                            class="figure-img img-fluid rounded"
-                                            alt="Dummy Chart"
-                                        />
-                                    </figure>
                                 </div>
                                 <div class="report__section">
-                                    <h2 class="report__header">Section 3</h2>
-                                    <figure class="figure report__figure">
-                                        <img
-                                            src="../static/images/plots/decades/line/number_of_hits.png"
-                                            class="figure-img img-fluid rounded"
-                                            alt="Dummy Chart"
-                                        />
-                                    </figure>
+                                    <h3 class="report__header">
+                                        Scaling & Duplicates
+                                    </h3>
                                     <div class="report__paragraphs">
                                         <p>
-                                            Lorem ipsum dolor sit amet
-                                            consectetur adipisicing elit.
-                                            Dignissimos, explicabo quo!
-                                            Accusamus nemo temporibus, rem,
-                                            aliquid enim tenetur sit molestiae
-                                            rerum iusto exercitationem dolor
-                                            asperiores vel quas itaque, nihil
-                                            minima?
+                                            While we now know that we'll be
+                                            identifying 3 clusters, we still
+                                            need to clean up our data before we
+                                            can run the clustering algorithm.
                                         </p>
+                                        <p>
+                                            One consideration we had to make was
+                                            whether to scale our data or not so
+                                            that all the values were consistent.
+                                            The majority of our values were
+                                            already between 0 and 1, but there
+                                            were a few that weren't. We decided
+                                            to run the clustering algorithm over
+                                            both the scaled and non-scaled data
+                                            to see which one performed better.
+                                        </p>
+                                        <p>
+                                            In order to test whether the scaled
+                                            or non-scaled model performed
+                                            better, we calculated the
+                                            shilhouette score for both models.
+                                            For information on the shilhouette
+                                            score, see this
+                                            <a
+                                                href="https://medium.com/analytics-vidhya/how-to-determine-the-optimal-k-for-k-means-708505d204eb"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >link</a
+                                            >.
+                                        </p>
+
+                                        <p>
+                                            The shilhouette score is ranged from
+                                            -1 to 1, with a higher value being a
+                                            better model. Our non-scaled model
+                                            got a score of 0.508, while our
+                                            scaled model recieved a 0.230.
+                                        </p>
+
+                                        <p>
+                                            In the end, we decided to use the
+                                            non-scaled data due to its higher
+                                            score. The score also gave us more
+                                            confidence in our clusters in
+                                            general.
+                                        </p>
+
+                                        <p>
+                                            Another consideration we had to make
+                                            was whether to remove songs that
+                                            charted multiple weeks in our data.
+                                            For example <i>Despacito</i> by Luis
+                                            Fonsi & Daddy Yankee featuring
+                                            Justin Bieber was in our dataset 16
+                                            times (Wow!). If we didn't remove
+                                            the duplicates, this song's high
+                                            tempo of 177 could have skewed the
+                                            data more than we would have liked.
+                                        </p>
+
+                                        <p>
+                                            We decided to only keep the rows in
+                                            our data of a song's highest
+                                            placement on the chart and drop the
+                                            other rows. This meant that if a
+                                            song crossed between years, then
+                                            only the year that the song placed
+                                            highest would be represented for
+                                            that song.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="report__section">
+                                    <h2 class="report__header">
+                                        Analyzing the Clusters
+                                    </h2>
+                                    <div class="report__paragraphs">
+                                        <p>
+                                            Now that we cleaned up our data and
+                                            know that we have a k-value of 3
+                                            clusters, it was now time to run the
+                                            k-means algorithm.
+                                        </p>
+
+                                        <p>
+                                            After running the algorithm, our
+                                            data was split into 3 clusters,
+                                            which we'll call Cluster 0, Cluster
+                                            1, and Cluster 2. It was now our
+                                            responsibility to try to identify
+                                            what kind of music our clusters
+                                            represented. Was one cluster rock
+                                            music while another was dance?
+                                        </p>
+
+                                        <p>
+                                            To try to figure this out, we
+                                            decided to make a variety of graphs
+                                            which looked at three different
+                                            angles of the songs within the
+                                            clusters:
+                                        </p>
+                                        <ul>
+                                            <li>
+                                                The musical attributes of the
+                                                songs within the clusters.
+                                            </li>
+                                            <li>
+                                                How songs within the clusters
+                                                trended within the Billboard Top
+                                                100.
+                                            </li>
+                                            <li>
+                                                How the songs in the clusters
+                                                were changed through the
+                                                decades.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="report__section">
+                                    <h3 class="report__header">
+                                        Song Attributes
+                                    </h3>
+                                    <div class="report__paragraphs">
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="report__section">
+                                    <h3 class="report__header">
+                                        Position on the Billboard Top 100
+                                    </h3>
+                                    <div class="report__paragraphs">
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="report__section">
+                                    <h3 class="report__header">
+                                        Throughout the Decades
+                                    </h3>
+                                    <div class="report__paragraphs">
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="report__section">
+                                    <h2 class="report__header">Conclusion</h2>
+                                    <div class="report__paragraphs">
+                                        <p></p>
                                     </div>
                                 </div>
                                 <div class="report__section">

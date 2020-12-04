@@ -8,7 +8,7 @@ Aaron Wollman, Kelsey Richardson Blackwell, Will Huang
 [Project Proposal](https://docs.google.com/document/d/18lH5qNpat62voNdJxxNazMAmrfGYoD7WSlTHtPxM6YI/edit)
 
 # Project Summary
-We used k-means on the billboard's top 100 songs from the 1960s to the late 2010's to classify the songs based on attributes from Spotify. We ended up using non-scaled data to categorize the thousands of songs into 3 clusters. After creating and running the k-means algorithm, we explored how the clusters related to the songs' attributes. 
+We used k-means, an unsupervised machine learning algorithm, on the billboard's top 100 songs from the 1960s to the late 2010's to classify the songs based on attributes from Spotify. We ended up using non-scaled data to categorize the thousands of songs into 3 clusters. After creating and running the k-means clustering algorithm, we explored how the clusters related to the songs' attributes. 
 
 ## K-Means Model
 We had a clean dataset from [Project 1](https://github.com/12wollmana/UMN-Data_Analytics-Project_01), so we did not have to spend a lot of time on cleaning it. We first looked for the ideal value of k by creating an elbow graph. 

@@ -92,13 +92,11 @@
                                         </p>
                                     </div>
                                 </div>
+
                                 <div class="report__section">
                                     <h2 class="report__header">
                                         K-Means Clustering
                                     </h2>
-                                </div>
-
-                                <div class="report__section">
                                     <h3 class="report__header">
                                         Determining a Value for K
                                     </h3>
@@ -130,9 +128,9 @@
 
                                         <figure class="figure report__figure">
                                             <img
-                                                src="../static/images/plots/decades/line/number_of_hits.png"
+                                                src="../static/images/plots/elbow.png"
                                                 class="figure-img img-fluid rounded"
-                                                alt="Dummy Chart"
+                                                alt="Elbow Plot"
                                             />
                                         </figure>
 
@@ -241,11 +239,25 @@
                                             After running the algorithm, our
                                             data was split into 3 clusters,
                                             which we'll call Cluster 0, Cluster
-                                            1, and Cluster 2. It was now our
-                                            responsibility to try to identify
-                                            what kind of music our clusters
-                                            represented. Was one cluster rock
-                                            music while another was dance?
+                                            1, and Cluster 2. The distribution
+                                            of the clusters show that Cluster 0
+                                            had the greatest amount of songs.
+                                        </p>
+
+                                        <figure class="figure report__figure">
+                                            <img
+                                                src="../static/images/plots/attributes/total_songs_cluster.png"
+                                                class="figure-img img-fluid rounded"
+                                                alt="Number of Songs per Cluster"
+                                            />
+                                        </figure>
+
+                                        <p>
+                                            It was now our responsibility to try
+                                            to identify what kind of music our
+                                            clusters represented. Was one
+                                            cluster rock music while another was
+                                            dance?
                                         </p>
 
                                         <p>
@@ -277,16 +289,348 @@
                                     <h3 class="report__header">
                                         Song Attributes
                                     </h3>
+                                    <div
+                                        class="report__paragraphs report--full-width"
+                                    >
+                                        <p>
+                                            To analyze the song attributes
+                                            within our clusters, we split the
+                                            values of each attribute into five
+                                            value ranges. In the table, these
+                                            ranges are the
+                                            <i>attribute_label</i> columns.
+                                        </p>
+                                    </div>
+                                    <figure
+                                        class="figure report__figure report--full-width"
+                                    >
+                                        <img
+                                            src="../static/images/tables/attribute_groups.png"
+                                            class="figure-img img-fluid rounded"
+                                            alt="Attribute Groups Table"
+                                        />
+                                    </figure>
+
+                                    <figure class="figure report__figure">
+                                        <img
+                                            src="../static/images/tables/attribute-chi-squared.png"
+                                            class="figure-img img-fluid rounded"
+                                            alt="Attribute Chi-Squared"
+                                        />
+                                        <figcaption
+                                            class="figure-caption text-center"
+                                        >
+                                            Chi-Square Test Results
+                                        </figcaption>
+                                    </figure>
+
                                     <div class="report__paragraphs">
-                                        <p></p>
+                                        <p>
+                                            We then conducted a Chi-Square Test
+                                            to calculate the independence
+                                            between these ranges and the
+                                            clusters. For more information on
+                                            Chi-Square Tests, see this
+                                            <a
+                                                href="https://www.statisticshowto.com/probability-and-statistics/chi-square/"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >link</a
+                                            >.
+                                        </p>
+
+                                        <p>
+                                            The attribute is considered not
+                                            independent if the p-value is less
+                                            than 0.05. From the table, we can
+                                            see that all attributes are not
+                                            independent from the cluster other
+                                            than key.
+                                        </p>
+                                    </div>
+
+                                    <div class="report__paragraphs">
+                                        <p>
+                                            In addition to the Chi-Squared Test,
+                                            we decided to use a Random Forest
+                                            Classifier to see what features are
+                                            important to our clusters. For
+                                            information on the Random Forest
+                                            Classifier, see this
+                                            <a
+                                                href="https://towardsdatascience.com/understanding-random-forest-58381e0602d2"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >link</a
+                                            >.
+                                        </p>
+
+                                        <p>
+                                            We split the dataset into a training
+                                            and a testing dataset, with the
+                                            training set being 75% of the data.
+                                            The classifier had a max depth of 3,
+                                            the number of estimators set to 100,
+                                            and a random state of 1. By the end,
+                                            we had an accuracy rate of nearly
+                                            95%. According the classifier, tempo
+                                            was, by far, the most important
+                                            attribute in our dataset.
+                                        </p>
+                                    </div>
+
+                                    <figure class="figure report__figure">
+                                        <img
+                                            src="../static/images/tables/attribute-importance.png"
+                                            class="figure-img img-fluid rounded"
+                                            alt="Attribute Importance"
+                                        />
+                                        <figcaption
+                                            class="figure-caption text-center"
+                                        >
+                                            Random Forest Results
+                                        </figcaption>
+                                    </figure>
+
+                                    <div
+                                        class="report__paragraphs report--full-width"
+                                    >
+                                        <p>
+                                            We also wanted to see which range of
+                                            values our attributes fell under per
+                                            cluster.
+                                        </p>
+
+                                        <p>
+                                            For the most part, the clusters had
+                                            similar distributions. The main
+                                            exceptions were tempo,
+                                            danceabillity, and valence.
+                                        </p>
+                                    </div>
+
+                                    <div class="report--full-width">
+                                        <figure class="figure report__figure">
+                                            <img
+                                                src="../static/images/plots/attributes/tempo_percent.png"
+                                                class="figure-img img-fluid rounded"
+                                                alt="Distribution of Tempo"
+                                            />
+                                            <figcaption
+                                                class="figure-caption text-center"
+                                            >
+                                                Distribution of Tempo
+                                            </figcaption>
+                                        </figure>
+
+                                        <figure class="figure report__figure">
+                                            <img
+                                                src="../static/images/plots/attributes/danceability_percent.png"
+                                                class="figure-img img-fluid rounded"
+                                                alt="Distribution of Danceability"
+                                            />
+                                            <figcaption
+                                                class="figure-caption text-center"
+                                            >
+                                                Distribution of Danceability
+                                            </figcaption>
+                                        </figure>
+
+                                        <figure class="figure report__figure">
+                                            <img
+                                                src="../static/images/plots/attributes/valence_percent.png"
+                                                class="figure-img img-fluid rounded"
+                                                alt="Distribution of Valence"
+                                            />
+                                            <figcaption
+                                                class="figure-caption text-center"
+                                            >
+                                                Distribution of Valence
+                                            </figcaption>
+                                        </figure>
+
+                                        <div class="report__paragraphs">
+                                            <p>
+                                                From the charts, we can see that
+                                                Cluster 0 tends to have medium
+                                                speed, mid-to-high danceability,
+                                                and high valence. Cluster 1 has
+                                                a slower speed, mid-to-high
+                                                danceability, and a mid-to-high
+                                                valence. Cluster 2 has a fast
+                                                speed, with a medium
+                                                danceability, and mid-to-high
+                                                valence.
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="report__section"></div>
                                 <div class="report__section">
                                     <h3 class="report__header">
                                         Position on the Billboard Top 100
                                     </h3>
                                     <div class="report__paragraphs">
-                                        <p></p>
+                                        <p>
+                                            When looking at the placement of the
+                                            songs within the Billboard Top 100,
+                                            we first tried to use pie charts to
+                                            look at the distribution of clusters
+                                            per 20 positions. In the pie chart,
+                                            Cluster 0 had the most hits within
+                                            the top 20, then Cluster 1, then
+                                            Cluster 3. The other pie charts
+                                            followed a similar pattern.
+                                        </p>
+
+                                        <p>
+                                            We then generated scatter plots to
+                                            look at the distribution of song
+                                            attributes per twenty positions.
+                                            Again, we didn't see many
+                                            differences between plots.
+                                        </p>
+                                    </div>
+                                    <figure class="figure report__figure">
+                                        <img
+                                            src="../static/images/plots/top-songs/songs1-20.png"
+                                            class="figure-img img-fluid rounded"
+                                            alt="Clusters in Songs 1 through 20"
+                                        />
+                                    </figure>
+
+                                    <figure
+                                        class="figure report__figure report--full-width"
+                                    >
+                                        <img
+                                            src="../static/images/plots/top-songs/scattersongs1-20.png"
+                                            class="figure-img img-fluid rounded"
+                                            alt="Attribute Distribution in the Top 20"
+                                        />
+                                        <figcaption
+                                            class="figure-caption text-center"
+                                        >
+                                            Attribute Distribution in the Top 20
+                                        </figcaption>
+                                    </figure>
+
+                                    <div
+                                        class="report__paragraphs report--full-width"
+                                    >
+                                        <p>
+                                            We then decided to use line-plots to
+                                            trend the attributes over the
+                                            positions where we noticed some
+                                            peculiar trends.
+                                        </p>
+
+                                        <p>
+                                            Note that Top 20 are positions 1
+                                            through 20, Top 40 are positions 21
+                                            through 40 and so on.
+                                        </p>
+                                    </div>
+
+                                    <figure class="figure report__figure">
+                                        <img
+                                            src="../static/images/plots/top-songs/valence.png"
+                                            class="figure-img img-fluid rounded"
+                                            alt="Average Valence Per Rank"
+                                        />
+                                    </figure>
+
+                                    <div class="report__paragraphs">
+                                        <p>
+                                            The average valence can be quite
+                                            different throughout the charts
+                                            depending on the cluster. Clusters 0
+                                            and 1 don't vary much as their
+                                            positions get higher, while Cluster
+                                            2 has a low valence at the bottom of
+                                            the chart (Top 100), and rises as it
+                                            nears the top of the chart (Top 20).
+                                            Maybe we listen to R.E.M.’s Shiny
+                                            Happy People more often than
+                                            Everybody Hurts.
+                                        </p>
+                                    </div>
+
+                                    <div class="report__paragraphs">
+                                        <p>
+                                            For acousticness, Cluster 1 has a
+                                            consistently higher value than the
+                                            other two clusters. Clusters 1 might
+                                            contain more folk-singers like James
+                                            Taylor, Bob Dylan, and Neil Young
+                                            compared to the other clusters.
+                                        </p>
+                                    </div>
+
+                                    <figure class="figure report__figure">
+                                        <img
+                                            src="../static/images/plots/top-songs/acousticness.png"
+                                            class="figure-img img-fluid rounded"
+                                            alt="Average Acousticness Per Rank"
+                                        />
+                                    </figure>
+
+                                    <figure class="figure report__figure">
+                                        <img
+                                            src="../static/images/plots/top-songs/speechiness.png"
+                                            class="figure-img img-fluid rounded"
+                                            alt="Average Speechiness Per Rank"
+                                        />
+                                    </figure>
+
+                                    <div class="report__paragraphs">
+                                        <p>
+                                            Cluster 2 has the most variance for
+                                            speechiness, where as the placement
+                                            rises in the charts, it has a lower
+                                            speechiness value. It does have a
+                                            consistently higher speechiness
+                                            value when compared to the other two
+                                            clusters. It might be that Cluster 2
+                                            contains more rap music, like Jay-Z.
+                                        </p>
+                                    </div>
+
+                                    <div class="report__paragraphs">
+                                        <p>
+                                            Danceability doesn't have much
+                                            variance in the values for each
+                                            cluster. However, Cluster 0 and 1
+                                            have high danceability scores while
+                                            Cluster 2 has much lower values.
+                                        </p>
+                                    </div>
+
+                                    <figure class="figure report__figure">
+                                        <img
+                                            src="../static/images/plots/top-songs/danceability.png"
+                                            class="figure-img img-fluid rounded"
+                                            alt="Average Danceability Per Rank"
+                                        />
+                                    </figure>
+
+                                    <figure class="figure report__figure">
+                                        <img
+                                            src="../static/images/plots/top-songs/tempo.png"
+                                            class="figure-img img-fluid rounded"
+                                            alt="Average Tempo Per Rank"
+                                        />
+                                    </figure>
+
+                                    <div class="report__paragraphs">
+                                        <p>
+                                            With tempo, all three clusters are
+                                            quite distinct from each other.
+                                            Cluster 2 has a much higher tempo
+                                            than the other two, while Cluster 0
+                                            has a higher temp than Cluster
+                                            1.None of the clusters tend to vary
+                                            much thoughout the Top 100.
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="report__section">

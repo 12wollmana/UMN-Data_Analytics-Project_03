@@ -21,6 +21,7 @@ In library.py we created a number of functions, including import_music_df_with_m
 We created a number of graphs to see how the clusters were influenced by the attributes, decades, and placements. 
 
  ![](static/images/plots/attributes/danceability_percent.png)\
+ 
  ![](static/images/plots/top-songs/valence.png)  ![](static/images/plots/decades/line/energy.png)
 
 ## Website

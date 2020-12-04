@@ -20,6 +20,6 @@ In library.py we created a number of functions. The import_music_df_with_model f
 
 
 # Sources
-[Dataset](https://github.com/fortyTwo102/hitpredictor-decade-util/tree/master/Database)
-[Silouetter Score](https://dzone.com/articles/kmeans-silhouette-score-explained-with-python-exam)
+[Dataset](https://github.com/fortyTwo102/hitpredictor-decade-util/tree/master/Database)\
+[Silouetter Score](https://dzone.com/articles/kmeans-silhouette-score-explained-with-python-exam)\
 [Elbow Graph](https://predictivehacks.com/k-means-elbow-method-code-for-python/)

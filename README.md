@@ -20,7 +20,7 @@ In library.py we created a number of functions. The import_music_df_with_model f
 ## Graphing Clusters & Attributes
 Next we created a number of graphs to see how the clusters were influenced by the attributes, decades, and placement. 
 
-![](static/images/plots/top-songs/valence.png)  ![](static/images/plots/decades/line/energy.png)
+ ![](static/images/plots/attributes/danceability_percent.png) ![](static/images/plots/top-songs/valence.png)  ![](static/images/plots/decades/line/energy.png)
 
 ## Website
 We used [heroku](https://umn-data-analytics-p03-t01.herokuapp.com/) to host our report and vizualizations.

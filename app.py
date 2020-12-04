@@ -31,10 +31,12 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0  # Prevent caching
 
 routes = {
     "home": "/",
+    "gallery": "/gallery"
 }
 
 templates = {
     "home": "index.html",
+    "gallery": "gallary.html"
 }
 
 # endregion
@@ -55,6 +57,20 @@ def home():
     """
 
     return render_template(templates["home"])
+
+
+@app.route(routes["gallery"])
+def gallery():
+    """
+    The gallery.
+
+    Returns
+    -------
+    Flask Rendered Template :
+        The HTML to show.
+    """
+
+    return render_template(templates["gallery"])
 # endregion
 
 ########################################

@@ -85,6 +85,8 @@ main {
 .report__figure {
     align-self: center;
     justify-self: center;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .report__figure img {

@@ -16,7 +16,13 @@ We had a clean dataset from [Project 1](https://github.com/12wollmana/UMN-Data_A
 We created a model with scaled and non-scaled data. We looked at the Silouetter Score for each model and decided to use the non-scaled. The Silouetter Score is between -1 ot 1. If the value is closer to 1, the clusters are more dense and separated from the other clusters. 
 
 ## Running Model
-In library.py we created a number of functions. The import_music_df_with_model function 
+In library.py we created a number of functions. The import_music_df_with_model function was important as it allowed us to remove dublicates and import the data into our jupyter notebooks.
+
+## Graphing Clusters & Attributes
+Next we created a number of graphs to see how the clusters were influenced by the attributes, decades, and placement. 
+
+## Website
+We used [heroku](https://umn-data-analytics-p03-t01.herokuapp.com/) to host our report and vizualizations.
 
 
 # Sources

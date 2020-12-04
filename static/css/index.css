@@ -60,10 +60,25 @@ h1 {
 main {
     margin: 4rem 0;
 }
-/* 1 rem eqauls to the default font size  of the root element*/
 
 .hidden {
     display: none;
     visibility: hidden;
     opacity: 0;
+}
+
+.report__section {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+}
+
+.report__header {
+    grid-column: 1 / -1;
+    grid-row: 1;
+}
+
+@media only screen and (max-width: 768px) {
+    .report__figure {
+        grid-column: 1 / -1;
+    }
 }

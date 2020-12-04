@@ -8,17 +8,17 @@ Aaron Wollman, Kelsey Richardson Blackwell, Will Huang
 [Project Proposal](https://docs.google.com/document/d/18lH5qNpat62voNdJxxNazMAmrfGYoD7WSlTHtPxM6YI/edit)
 
 # Project Summary
-We created a k-means model on billboard's top 100 songs from the 1960s to 2019, looks at attributes from Spotify. We ended up using non-scaled data to categorize the thousands of songs into 3 clusters. After creating and running the algorithm, we explored how the clusters related to the songs' attributes. This website will take you from modeling to what we found while graphing the clusters.
+We used k-means on the billboard's top 100 songs from the 1960s to the late 2010's to classify the songs based on attributes from Spotify. We ended up using non-scaled data to categorize the thousands of songs into 3 clusters. After creating and running the k-means algorithm, we explored how the clusters related to the songs' attributes. 
 
 ## K-Means Model
 We had a clean dataset from [Project 1](https://github.com/12wollmana/UMN-Data_Analytics-Project_01), so we did not have to spend a lot of time on cleaning it. We first looked for the ideal value of k by creating an elbow graph. 
 
 We created a model with scaled and non-scaled data. We looked at the Silouetter Score for each model and decided to use the non-scaled. The Silouetter Score is between -1 ot 1. If the value is closer to 1, the clusters are more dense and separated from the other clusters. 
 
-In library.py we created a number of functions. The import_music_df_with_model function was important as it allowed us to remove dublicates and import the data into our jupyter notebooks.
+In library.py we created a number of functions, including import_music_df_with_model function that removes dublicates and imports the data into our jupyter notebooks.
 
 ## Graphing Clusters & Attributes
-Next we created a number of graphs to see how the clusters were influenced by the attributes, decades, and placement. 
+We created a number of graphs to see how the clusters were influenced by the attributes, decades, and placements. 
 
  ![](static/images/plots/attributes/danceability_percent.png)\
  ![](static/images/plots/top-songs/valence.png)  ![](static/images/plots/decades/line/energy.png)
